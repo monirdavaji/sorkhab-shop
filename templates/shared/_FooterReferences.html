@@ -1,0 +1,25 @@
+{% load static %}
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+<script src="{% static 'js/price-range.js' %}"></script>
+<script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+<!-- اسکریپت نقشه -->
+<script>
+    var map = L.map('map').setView(
+        [{{ setting.location_lat }}, {{ setting.location_lng }}],
+        15
+    );
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([{{ setting.location_lat }}, {{ setting.location_lng }}]).addTo(map)
+        .bindPopup('موقعیت فروشگاه سرخاب')
+        .openPopup();
+</script>

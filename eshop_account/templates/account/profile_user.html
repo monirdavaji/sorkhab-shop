@@ -1,0 +1,71 @@
+{% extends 'shared/_MainLayout.html' %}
+
+<!-- templates/accounts/profile.html -->
+{% load static %}
+{% block header_ref %}
+    <style>
+        .profile-wrapper {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            border: 2px solid #000;
+            border-radius: 16px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .profile-card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .btn-group-vertical .btn {
+            font-size: 16px;
+            padding: 10px;
+        }
+    </style>
+    <style>
+        .top-message {
+            width: 300px;
+            padding: 15px;
+            background-color: #e0e0e0;
+            margin: 30px auto 20px auto; /* فاصله بالا و پایین، وسط‌چین افقی */
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="top-message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="profile-wrapper">
+        <div class="profile-card">
+            <h3 class="mb-4 text-center">پروفایل کاربر</h3>
+            <p><strong>نام کاربری:</strong> {{ user.username }}</p>
+            <p><strong>ایمیل:</strong> {{ user.email }}</p>
+            <p><strong>تاریخ عضویت:</strong> {{ user.date_joined|date:"Y/m/d" }}</p>
+
+            <div class="btn-group-vertical w-100 mt-4">
+                <a href="{% url 'my_profile' %}" class="btn btn-outline-primary">👤 پروفایل من</a>
+                <a href="{% url 'edit_profile' %}" class="btn btn-outline-warning">✏️ ویرایش اطلاعات</a>
+                <a href="{% url 'user_order_view' %}" class="btn btn-outline-success">🛒 مشاهده سبد خرید</a>
+                <a href="{% url 'products-cbv' %}" class="btn btn-outline-primary">💳 ادامه خرید</a>
+                <a href="{% url 'logout' %}" class="btn btn-outline-danger">🚪 خروج</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'shared/_MainLayout.html' %}
+{% block header_ref %}
+    <style>
+        .edit-profile-wrapper {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .edit-profile-card {
+            border: 2px solid #000;
+            border-radius: 16px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .edit-profile-card h3 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .btn-custom {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+
+    <div class="edit-profile-wrapper">
+        <div class="edit-profile-card">
+            <h3>✏️ ویرایش پروفایل</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-warning mt-3 btn-custom">ثبت تغییرات</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

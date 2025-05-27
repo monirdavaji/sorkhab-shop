@@ -970,7 +970,7 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
+  /*opacity:;*/
 }
 
 .single-products:hover .product-overlay {
@@ -2340,7 +2340,7 @@ h2.title {
 
 .rating-area {
   border: 1px solid #F7F7F0;
-  direction: block;
+  /*direction: block;*/
   overflow: hidden;
 }
 
@@ -2434,7 +2434,7 @@ h2.title {
   color: #363432;
   font-size: 13pt;
   font-weight: 400;
-  font-family: 'B Yekan'sans-serif;
+  font-family: 'B Yekan',sans-serif;
   margin-bottom: 15px
 }
 
